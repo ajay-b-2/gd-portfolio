@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Designs | Ajay Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+:root {
+    --bg-main: #060913;
+    --primary: #00f0ff;
+    --secondary: #7000ff;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+*{box-sizing:border-box;margin:0;padding:0;}
+body{
+    font-family:'Outfit',sans-serif;
+    background:radial-gradient(circle at 50% 50%, #1e1b4b 0%, var(--bg-main) 100%);
+    color:var(--text-main);
+    overflow-x:hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1.5rem 5%;
+    background:rgba(6, 9, 19, 0.8);
+    backdrop-filter:blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+    position:sticky;
+    top:0;
+    z-index:10;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    width: 90px;   /* adjust size */
+    height: auto;
+}
+
+/* Optional: make it look smoother on hero */
+.logo-img {
+    object-fit: contain;
+}
+.back-btn{
+    padding:0.6rem 1.2rem;
+    border:1px solid var(--glass-border);
+    border-radius:50px;
+    background:transparent;
+    color:var(--text-main);
+    font-family: 'Outfit', sans-serif;
+    cursor:pointer;
+    transition:all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.back-btn:hover{
+    background:var(--glass-bg);
+    border-color: var(--text-main);
+}
+.welcome-banner {
+    text-align: center;
+    padding: 4rem 5% 2rem;
+}
+.welcome-banner h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+.welcome-banner h1 span {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.welcome-banner p { color: var(--text-muted); }
+
+section.gallery{
+    padding:3rem 5%;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-grow: 1;
+}
+.card{
+    background:var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius:20px;
+    overflow: hidden;
+    backdrop-filter:blur(12px);
+    box-shadow:0 10px 30px rgba(0,0,0,0.2);
+    transition:transform 0.4s ease, border-color 0.4s ease;
+}
+.card:hover{
+    transform:translateY(-8px);
+    border-color: rgba(255,255,255,0.2);
+}
+.card-img-wrapper {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+.card img{
+    width:100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.card:hover img { transform: scale(1.05); }
+
+.status-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    backdrop-filter: blur(10px);
+}
+.status-pending { background: rgba(255, 166, 0, 0.8); color: #fff; }
+.status-approved { background: rgba(0, 255, 106, 0.8); color: #000; }
+
+.card-body { padding: 1.5rem; }
+.card h3{margin-bottom: 0.5rem; font-size: 1.4rem;}
+.card p{font-size:0.95rem;color:var(--text-muted);margin-bottom:1.5rem;}
+.card-actions {
+    display: flex;
+    gap: 10px;
+}
+.btn {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    flex: 1;
+    transition: all 0.3s;
+}
+.btn-approve {
+    background: rgba(0, 255, 106, 0.1);
+    color: #00ff6a;
+    border: 1px solid #00ff6a;
+}
+.btn-approve:hover { background: #00ff6a; color: #000; }
+.btn-feedback {
+    background: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--glass-border);
+}
+.btn-feedback:hover { background: var(--glass-bg); }
+
+.comments-section{
+    margin-top: 10px;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 8px;
+}
+
+/* Title smaller */
+.comments-section h4{
+    font-size: 0.75rem;
+    margin-bottom: 6px;
+    color: var(--text-muted);
+}
+
+/* Smaller scroll area */
+.comment-list{
+    max-height: 80px;
+    overflow-y: auto;
+    margin-bottom: 6px;
+}
+
+/* Smaller comment bubble */
+.comment{
+    background: rgba(255,255,255,0.06);
+    padding: 6px 8px;
+    border-radius: 6px;
+    margin-bottom: 4px;
+    font-size: 0.75rem;
+    line-height: 1.3;
+}
+
+/* Compact input row */
+.comment-input{
+    display: flex;
+    gap: 4px;
+}
+
+/* Small input */
+.comment-input input{
+    flex: 1;
+    padding: 6px;
+    border-radius: 5px;
+    border: none;
+    background: rgba(255,255,255,0.07);
+    color: white;
+    font-size: 0.75rem;
+}
+
+/* Small button */
+.comment-input button{
+    padding: 6px 8px;
+    border-radius: 5px;
+    border: none;
+    background: var(--primary);
+    color: #000;
+    cursor: pointer;
+    font-size: 0.75rem;
+}
+
+.popup-overlay{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.7);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:100;
+}
+
+.popup-box{
+    background:#0f172a;
+    padding:30px;
+    border-radius:15px;
+    width:320px;
+    text-align:center;
+    border:1px solid rgba(255,255,255,0.1);
+    animation: fadeIn 0.3s ease;
+}
+
+.popup-box h2{
+    margin-bottom:10px;
+}
+
+.popup-box p{
+    color:#94a3b8;
+    margin-bottom:20px;
+}
+
+.popup-box textarea{
+    width:100%;
+    height:100px;
+    border-radius:8px;
+    border:none;
+    padding:10px;
+    margin-bottom:15px;
+    background:rgba(255,255,255,0.05);
+    color:#fff;
+}
+
+.popup-box button{
+    width:100%;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    margin-top:5px;
+    background:linear-gradient(90deg,#00f0ff,#7000ff);
+    color:#000;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.popup-box .cancel{
+    background:transparent;
+    color:#fff;
+    border:1px solid rgba(255,255,255,0.2);
+}
+
+.success-icon{
+    font-size:40px;
+    color:#00ff6a;
+    margin-bottom:10px;
+}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:scale(0.9);}
+    to{opacity:1; transform:scale(1);}
+}
+
+
+
+
+
+
+
+
+
+
+footer{
+    text-align:center;
+    padding:2rem;
+    color:var(--text-muted);
+    border-top: 1px solid var(--glass-border);
+}
+
+
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    .logo-img {
+        width: 70px;
+    }
+
+    .back-btn {
+        position: static;
+        margin-top: 10px;
+    }
+
+    .welcome-banner {
+        padding: 2rem 1rem;
+    }
+
+    .welcome-banner h1 {
+        font-size: 1.8rem;
+    }
+
+    /* Make gallery like 2x2 grid */
+    section.gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        padding: 1.5rem;
+    }
+
+    .card {
+        border-radius: 14px;
+    }
+
+    .card-img-wrapper {
+        height: 120px;
+    }
+
+    .card-body {
+        padding: 0.8rem;
+    }
+
+    .card h3 {
+        font-size: 0.9rem;
+    }
+
+    .card p {
+        font-size: 0.7rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .btn {
+        padding: 6px;
+        font-size: 0.7rem;
+    }
+
+    /* Make buttons stack like simple blocks */
+    .card-actions {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    /* Comments full width */
+    .comments-section {
+        padding: 0 1rem;
+    }
+}
+</style>
+</head>
+<body>
+<header>
+      <!-- NAVBAR -->
+    <nav id="navbar">
+        <div class="logo">
+    <img src="logo.png" alt="AJ Design Logo" class="logo-img">
+    <span class="brand">AJ DESIGN</span>
+</div>
+<div style="position: absolute; top: 20px; right: 20px;">
+    <button class="back-btn" onclick="window.location.href='index.html'">
+        <i class="fas fa-arrow-left"></i> Home
+    </button>
+</div>
+     
+      
+  </div>
+  
+</header>
+
+<div class="welcome-banner">
+    <h1>Welcome, <span>Client</span></h1>
+    <p>Review and approve your latest design drafts.</p>
+</div>
+
+<div style="text-align:center; margin-top:-10px; padding: 0 20px;">
+    <p style="color:#94a3b8; max-width:600px; margin:auto;">
+        This is a professional area for existing clients to view drafts and provide feedback.
+    </p>
+</div>
+
+
+
+<section class="gallery">
+
+  <!-- Project 1 -->
+  <div class="card">
+    <div class="card-img-wrapper">
+        <span class="status-badge status-pending">Awaiting Review</span>
+        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80" alt="Brand design">
+    </div>
+    <div class="card-body">
+        <h3>Urban Brew Café - Logo Design</h3>
+        <p>Minimal coffee brand identity with bold typography and earthy tones.</p>
+        <div class="card-actions">
+            <button class="btn btn-approve" onclick="approveDesign()">Approve</button>
+            <button class="btn btn-feedback" onclick="openFeedback()">Feedback</button>
+        </div>
+    </div>
+  </div>
+
+  <!-- Project 2 -->
+  <div class="card">
+    <div class="card-img-wrapper">
+        <span class="status-badge status-pending">Awaiting Review</span>
+        <img src="https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=800&q=80" alt="Social media design">
+    </div>
+    <div class="card-body">
+        <h3>FitZone Gym - Social Media Creatives</h3>
+        <p>High-energy Instagram posts designed to boost engagement and brand awareness.</p>
+        <div class="card-actions">
+            <button class="btn btn-approve" onclick="approveDesign()">Approve</button>
+            <button class="btn btn-feedback" onclick="openFeedback()">Feedback</button>
+        </div>
+    </div>
+  </div>
+
+  <!-- Project 3 -->
+  <div class="card">
+    <div class="card-img-wrapper">
+        <span class="status-badge status-approved">Approved</span>
+        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=800&q=80" alt="Website UI">
+    </div>
+    <div class="card-body">
+        <h3>TechNova - Website UI Design</h3>
+        <p>Modern SaaS landing page with clean layout and conversion-focused sections.</p>
+        <div class="card-actions">
+            <button class="btn btn-feedback" style="background: var(--primary); color: #000; border: none;" onclick="alert('Download started')">
+                <i class="fas fa-download"></i> Download Assets
+            </button>
+        </div>
+    </div>
+  </div>
+
+  <!-- Project 4 -->
+  <div class="card">
+    <div class="card-img-wrapper">
+        <span class="status-badge status-approved">Approved</span>
+        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=800&q=80" alt="Poster design">
+    </div>
+    <div class="card-body">
+        <h3>Music Fest 2026 - Poster Design</h3>
+        <p>Vibrant event poster with bold colors and dynamic typography.</p>
+        <div class="card-actions">
+            <button class="btn btn-feedback" style="background: var(--primary); color: #000; border: none;" onclick="alert('Download started')">
+                <i class="fas fa-download"></i> Download Assets
+            </button>
+        </div>
+    </div>
+  </div>
+
+</section>
+
+<div class="comments-section">
+    <h4>Comments</h4>
+
+    <div class="comment-list" id="comments-1"></div>
+
+    <div class="comment-input">
+        <input type="text" id="input-1" placeholder="Write a comment...">
+        <button onclick="addComment(1)">Post</button>
+    </div>
+</div>
+
+
+<footer>
+  © 2026 Ajay Design Studio
+</footer>
+
+<div id="feedbackModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); justify-content:center; align-items:center;">
+    <div style="background:#111; padding:20px; border-radius:10px; width:300px;">
+        <h3>Give Feedback</h3>
+        <textarea placeholder="Write your feedback..." style="width:100%; height:100px; margin-top:10px;"></textarea>
+        <button style="margin-top:10px; width:100%;" onclick="submitFeedback()">Submit</button>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- APPROVE POPUP -->
+<div id="approvePopup" class="popup-overlay">
+    <div class="popup-box">
+        <i class="fas fa-check-circle success-icon"></i>
+        <h2>Design Approved</h2>
+        <p>Your approval has been recorded successfully.</p>
+        <button onclick="closePopup('approvePopup')">Close</button>
+    </div>
+</div>
+
+
+
+
+<!-- FEEDBACK POPUP -->
+<div id="feedbackPopup" class="popup-overlay">
+    <div class="popup-box">
+        <h2>Submit Feedback</h2>
+        <textarea id="feedbackText" placeholder="Write your feedback..."></textarea>
+        <button onclick="submitFeedback()">Submit</button>
+        <button class="cancel" onclick="closePopup('feedbackPopup')">Cancel</button>
+    </div>
+</div>
+
+
+
+
+</body>
+
+
+<script>
+function openFeedback(){
+    document.getElementById("feedbackModal").style.display = "flex";
+}
+
+function submitFeedback(){
+    alert("Feedback submitted!");
+    document.getElementById("feedbackModal").style.display = "none";
+}
+
+function addComment(id){
+    const input = document.getElementById("input-" + id);
+    const commentText = input.value.trim();
+
+    if(commentText === "") return;
+
+    const commentList = document.getElementById("comments-" + id);
+
+    const newComment = document.createElement("div");
+    newComment.classList.add("comment");
+
+    const time = new Date().toLocaleTimeString();
+
+    newComment.innerHTML = `<strong>You:</strong> ${commentText}<br><small>${time}</small>`;
+
+    commentList.appendChild(newComment);
+
+    input.value = "";
+}
+
+
+function openPopup(id){
+    document.getElementById(id).style.display = "flex";
+}
+
+function closePopup(id){
+    document.getElementById(id).style.display = "none";
+}
+
+// Approve button
+function approveDesign(){
+    openPopup("approvePopup");
+}
+
+// Feedback button
+function openFeedback(){
+    openPopup("feedbackPopup");
+}
+
+// Submit feedback
+function submitFeedback(){
+    const text = document.getElementById("feedbackText").value;
+
+    if(text.trim() === ""){
+        alert("Please write feedback");
+        return;
+    }
+
+    closePopup("feedbackPopup");
+    openPopup("approvePopup");
+}
+
+
+
+
+
+
+
+
+
+</script>
+</html>

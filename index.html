@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajay Design | Professional Graphic Designer</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+<nav id="navbar">
+    <div class="logo">
+        <img src="logo.png" class="logo-img">
+        <span class="brand">AJ DESIGN</span>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#portfolio">Work</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+
+        <!-- MOBILE LOGIN -->
+        <button class="mobile-login" onclick="goLogin()">
+            <i class="fas fa-right-to-bracket"></i> Client Login
+        </button>
+    </div>
+
+    <!-- DESKTOP LOGIN -->
+    <button class="desktop-login" onclick="goLogin()">
+        Client Login <i class="fas fa-arrow-right"></i>
+    </button>
+
+    <button class="mobile-menu-btn" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </button>
+</nav>
+
+    <!-- HERO CONTENT -->
+    <section id="home" class="hero-bg">
+        <div class="hero-content">
+           <!-- <span class="badge">Open for Freelance Work</span>-->
+            <h1>Crafting Visual <br> <span class="highlight">Masterpieces.</span></h1>
+            <p>I design premium brand identities, intuitive UI/UX, and impactful digital experiences for forward-thinking companies.</p>
+            <div class="hero-actions">
+                <a href="#portfolio" class="btn-primary">View My Work</a>
+                <a href="#contact" class="btn-secondary">Let's Talk</a>
+            </div>
+        </div>
+      
+    </section>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="about-section">
+    <div class="about-container">
+
+        <!-- Left Side (Image) -->
+      <div class="about-image">
+    <div class="circle-bg">
+        <img src="https://i.pinimg.com/736x/70/6e/60/706e604733b20bff42fd7daf2192fe94.jpg" alt="Ajay">
+    </div>
+</div>
+
+        <!-- Right Side (Content) -->
+        <div class="about-content">
+             <h2>About <span class="highlight">Me</span></h2>
+
+            <p>
+                Hi, I'm <strong>Ajay</strong>, a passionate graphic designer focused on creating
+                modern, clean, and impactful visual designs. I specialize in building strong
+                brand identities and engaging digital experiences that help businesses grow.
+            </p>
+
+            <p>
+                I enjoy transforming ideas into creative visuals that connect with people
+                and leave a lasting impression.
+            </p>
+
+            <!-- Skills -->
+   <div class="skills">
+    <h3>My Skills</h3>
+
+    <div class="skills-track">
+        <div class="skills-move">
+            <!-- original set -->
+            <span>Adobe Photoshop</span>
+            <span>Adobe Illustrator</span>
+            <span>Figma</span>
+            <span>UI/UX Design</span>
+            <span>Brand Identity</span>
+            <span>Social Media Design</span>
+            <span>Canva</span>
+
+            <!-- duplicate set (IMPORTANT for seamless loop) -->
+            <span>Adobe Photoshop</span>
+            <span>Adobe Illustrator</span>
+            <span>Figma</span>
+            <span>UI/UX Design</span>
+            <span>Brand Identity</span>
+            <span>Social Media Design</span>
+            <span>Canva</span>
+        </div>
+    </div>
+</div>
+        </div>
+
+    </div>
+</section>
+
+
+
+    <!-- GALLERY SECTION -->
+   <section id="portfolio" class="gallery-section">
+    <div class="section-header">
+        <h2>Featured <span class="highlight">Works</span></h2>
+        <p>A glimpse into my recent design projects</p>
+    </div>
+
+    <div class="work-container">
+
+        <!-- Card 1 -->
+        <div class="work-card" onclick="toggleCard(this)">
+    <div class="work-img">
+        <img src="https://i.pinimg.com/736x/ba/c9/af/bac9afa9f478656c6d3b848471bdbc89.jpg">
+    </div>
+    <div class="work-text">
+        <span class="tag">Brand Identity</span>
+        <h3>Starbucks Coffee Branding</h3>
+        <p class="short">Premium identity for an urban coffee startup.</p>
+        <p class="full">This project includes logo design, packaging, color palette, and brand guidelines for a modern coffee brand.</p>
+    </div>
+</div>
+
+        <!-- Card 2 -->
+         
+        <div class="work-card reverse"  onclick="toggleCard(this)">
+            <div class="work-img">
+                <img src="https://i.pinimg.com/736x/6e/88/83/6e88831da28e75113c473235af999398.jpg">
+            </div>
+            <div class="work-text">
+                <span class="tag">Trending Post</span>
+                <h3>Social Media Post</h3>
+                <p>Creative and engaging social media designs for modern brands.</p>
+                <p class="full">Modern and eye-catching social media designs that boost engagement and brand visibility.</p>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="work-card"   onclick="toggleCard(this)">
+            <div class="work-img">
+                <img src="https://i.pinimg.com/1200x/1c/60/18/1c6018960fd82fd5993f28d7429148ad.jpg">
+            </div>
+            <div class="work-text">
+                <span class="tag">Visiting Cards</span>
+                <h3>Business Cards</h3>
+                <p>Professional and minimal business card designs.</p>
+                <p class="full" >Graphic Designer specializing in visual identity and brand storytelling. I transform complex ideas into compelling visual narratives that resonate with audiences.</p>
+            </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="work-card reverse"   onclick="toggleCard(this)">
+            <div class="work-img">
+                <img src="https://i.pinimg.com/736x/9e/b8/1d/9eb81d535d34959b1220a72cb519745d.jpg">
+            </div>
+            <div class="work-text">
+                <span class="tag">Poster Design</span>
+                <h3>Ad Poster</h3>
+                <p>Eye-catching posters for promotions and branding.</p>
+                 <p class="full" >Elevating brands through purposeful design. From concept to creation, I build visual identities that stand out in a crowded digital world.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+   
+
+
+    <!-- SERVICES SECTION -->
+<section id="services" class="services-section">
+    <div class="section-header">
+        <h2>Creative <span class="highlight">Services</span></h2>
+        <p>Design solutions crafted to elevate your brand presence</p>
+    </div>
+
+   <div class="service-grid">
+
+    <!-- Card 1 -->
+    <div class="service-card bg-card" style="background-image:url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=800&q=80');">
+        <div class="overlay"></div>
+        <i class="fas fa-bezier-curve"></i>
+        <h3>Brand Identity</h3>
+        <p>Logos, color systems, and brand guidelines that create lasting impressions.</p>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="service-card bg-card" style="background-image:url('https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&w=800&q=80');">
+        <div class="overlay"></div>
+        <i class="fas fa-laptop-code"></i>
+        <h3>Social Media Design</h3>
+        <p>Creative posts and ad visuals designed to increase engagement and reach.</p>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="service-card bg-card" style="background-image:url('https://i.pinimg.com/736x/12/72/b0/1272b0d8a44337e393b345d0bbab2748.jpg');">
+        <div class="overlay"></div>
+        <i class="fas fa-object-group"></i>
+        <h3>Motion Graphics</h3>
+        <p>Simple animations, reels, and promotional videos for digital platforms.</p>
+    </div>
+
+</div>
+</section>
+
+    <!-- CONTACT SECTION -->
+   <section id="contact" class="contact-section">
+
+    <!-- 🎥 Background Video -->
+    <video autoplay muted loop class="bg-video">
+        <source src="https://www.pexels.com/download/video/16381076/" type="video/mp4">
+    </video>
+
+    <!-- 🌑 Overlay -->
+    <div class="overlay"></div>
+
+    <!-- CONTENT -->
+    <div class="contact-container">
+        
+        <div class="contact-info">
+            <h2>Let's build something <span class="highlight">amazing</span> together.</h2>
+            <p>Whether you have a specific project in mind or just want to explore possibilities, I'd love to hear from you.</p>
+
+            <div class="contact-details">
+                <div class="detail">
+                    <i class="fas fa-envelope"></i>
+                    <span>ajdesign@gmail.com</span>
+                </div>
+
+                <div class="detail">
+                    <i class="fas fa-phone"></i>
+                    <span>+91 90452 45515</span>
+                </div>
+
+                <div class="detail">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>PALAKKAD, KERALA</span>
+                </div>
+            </div>
+        </div>
+
+        <form class="contact-form" onsubmit="event.preventDefault(); alert('Message sent successfully!');">
+            <div class="input-group">
+                <input type="text" placeholder="Your Name" required>
+            </div>
+
+            <div class="input-group">
+                <input type="email" placeholder="Your Email" required>
+            </div>
+
+            <div class="input-group">
+                <textarea placeholder="Tell me about your project..." rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary">
+                Send Message <i class="fas fa-paper-plane"></i>
+            </button>
+        </form>
+
+    </div>
+</section>
+
+    <footer>
+        <div class="footer-content">
+               <div class="logo">
+    <img src="logo.png" alt="AJ Design Logo" class="logo-img">
+    <span class="brand">AJ DESIGN</span>
+</div>
+            <div class="social-links">
+                 <a href="https://www.instagram.com/ajjuuo_/"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-threads"></i></a>
+                <a href="https://www.facebook.com/profile.php?id=100013556252224"><i class="fab fa-facebook"></i></a>
+               
+                <a href="https://www.linkedin.com/in/ajay-b-070a0225a/"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Aj Design Studio. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

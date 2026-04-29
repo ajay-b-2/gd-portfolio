@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Client Access | Ajay Design</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Outfit',sans-serif;
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+}
+
+/* 🎥 Background Video (FIXED LINK) */
+.bg-video{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
+}
+
+/* Overlay */
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:linear-gradient(120deg, rgba(0,0,0,0.75), rgba(30,27,75,0.2));
+    z-index:-1;
+}
+
+/* Glow */
+.glow{
+    position:absolute;
+    width:300px;
+    height:300px;
+    background:radial-gradient(circle, #ff000000, transparent);
+    border-radius:50%;
+    filter:blur(80px);
+    animation:float 10s infinite alternate;
+}
+
+.glow:nth-child(1){ top:10%; left:10%; }
+.glow:nth-child(2){ bottom:10%; right:10%; animation-delay:2s; }
+
+@keyframes float{
+    from{transform:translateY(0);}
+    to{transform:translateY(50px);}
+}
+
+/* Layout */
+.main-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:90%;
+    max-width:1200px;
+    gap:50px;
+}
+
+/* LEFT */
+.left-content{
+    flex:1;
+    animation:fadeIn 1.2s ease;
+}
+
+.left-content h1{
+    font-size:3rem;
+}
+
+.left-content h1 span{
+    background:linear-gradient(90deg,#00f0ff,#7000ff);
+        /* Standard property */
+    background-clip: text;
+    
+    /* WebKit support */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+.tagline{
+    color:#ccc;
+    margin:15px 0;
+}
+
+.feature{
+    background:rgba(255,255,255,0.05);
+    padding:10px;
+    border-radius:10px;
+    margin-bottom:10px;
+    font-size:0.9rem;
+}
+
+.about{
+    color:#aaa;
+    font-size:0.9rem;
+}
+
+/* LOGIN BOX (FIXED) */
+.box{
+    flex:0 0 360px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,0.15);
+    padding:40px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 20px 60px rgba(0,0,0,0.6);
+    animation:fadeIn 1s ease;
+}
+
+/* Heading */
+.box h2{
+    margin-bottom:20px;
+}
+
+.box h2 span{
+    background:linear-gradient(90deg,#00f0ff,#7000ff);
+    /* Standard property */
+    background-clip: text;
+    
+    /* WebKit support (Chrome, Safari) */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Inputs */
+.input-group{
+    position:relative;
+    margin-bottom:18px;
+}
+
+.input-group input{
+    width:100%;
+    padding:14px;
+    border-radius:10px;
+    border:none;
+    background:rgba(255,255,255,0.08);
+    color:#fff;
+    outline:none;
+}
+
+/* FIXED LABEL VISIBILITY */
+.input-group label{
+    position:absolute;
+    left:12px;
+    top:12px;
+    font-size:0.8rem;
+    color:#bbb;
+    transition:0.3s;
+}
+
+/* Floating label */
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label{
+    top:-8px;
+    left:8px;
+    background:#060913;
+    padding:0 5px;
+    font-size:0.7rem;
+    color:#00f0ff;
+}
+
+/* Button */
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:50px;
+    background:linear-gradient(90deg,#00f0ff,#7000ff);
+    color:#000;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+/* Back */
+.back{
+    display:block;
+    margin-top:15px;
+    color:#aaa;
+    text-decoration:none;
+}
+.back:hover{color:#fff;}
+
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(30px);}
+    to{opacity:1;}
+}
+
+/* Mobile */
+@media(max-width:768px){
+    .main-container{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎥 WORKING VIDEO -->
+<video autoplay muted loop class="bg-video">
+    <source src="https://www.pexels.com/download/video/33897486/" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="glow"></div>
+<div class="glow"></div>
+
+<div class="main-container">
+
+    <!-- LEFT -->
+    <div class="left-content">
+        <h1>Aj <span>Design Studio</span></h1>
+
+        <p class="tagline">
+            Crafting modern visuals that elevate brands.
+        </p>
+
+        <div class="feature">🎨 Brand Identity</div>
+        <div class="feature">📱 Social Media Design</div>
+        <div class="feature">🚀 UI/UX Design</div>
+
+        <p class="about">
+            I design impactful visuals that help businesses grow and stand out.
+        </p>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="box">
+        <h2>Client <span>Access</span></h2>
+
+        <div class="input-group">
+            <input type="email" id="email" placeholder="" required>
+            <label>Email Address</label>
+        </div>
+
+        <div class="input-group">
+            <input type="password" id="code" placeholder="" required>
+            <label>Project Code</label>
+        </div>
+
+        <button onclick="login()">View My Designs</button>
+        <a href="index.html" class="back">← Back</a>
+    </div>
+
+</div>
+
+<script>
+function login(){
+    let email = document.getElementById("email").value;
+    let code = document.getElementById("code").value;
+
+    if(email === "client@gmail.com" && code === "1234"){
+        window.location.href = "client.html";
+    } else {
+        alert("Invalid login details");
+    }
+}
+</script>
+
+</body>
+</html>
