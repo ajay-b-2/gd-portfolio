@@ -192,3 +192,16 @@
 .mobile-menu-btn {
     display: none;
 }
+
+.desktop-login {
+    padding: 10px 18px;
+    border-radius: 30px;
+    border: none;
+    background: linear-gradient(90deg,#00f0ff,#7000ff);
+    color: #000;
+    font-weight: 600;
+    cursor: pointer;
+    
+}
+
+ 
